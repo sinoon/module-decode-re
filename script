@@ -1,0 +1,75 @@
+
+
+Dim i //初始值
+i= Form1.InputBox1.Text * 100
+
+Dim n //终止值
+n = Form1.InputBox2.Text * 100
+
+Dim t //步长
+t = Form1.InputBox3.Text * 100
+
+While i <= n
+
+
+
+FindPic 0,0,2000,2000,"yes.bmp",0.9,intX,intY
+If intX > 0 And intY > 0 Then 
+
+Dim box1
+box1 = intX - 112
+Dim box2
+box2 = intX - 32
+
+MoveTo box1, intY
+Delay 100
+
+LeftClick 1
+Delay 100
+
+KeyDown 17, 1
+KeyPress 65, 1
+KeyUp 17, 1
+Delay 100
+
+SayString i/100
+Delay 100
+
+MoveTo box2, intY
+Delay 100
+
+LeftClick 1
+Delay 100
+
+KeyDown 17, 1
+KeyPress 65, 1
+KeyUp 17, 1
+Delay 100
+
+SayString i/100
+Delay 100
+
+MoveTo intX, intY
+Delay 100
+
+LeftClick 1
+Delay 100
+
+i = i + 1
+
+intX = 0
+intY = 0
+box1 = 0
+box2 = 0
+
+Else 
+//MessageBox "no"
+MoveR 0,30
+End If
+
+
+Wend
+
+Event Form1.InputBox1.Change
+
+End Event
